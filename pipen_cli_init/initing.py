@@ -61,10 +61,12 @@ def write_pyproject_toml(args: Mapping[str, Any]) -> None:
     with TARGET_DIR.joinpath("pyproject.toml").open("w") as fpyp:
         toml.dump(pyp, fpyp)
 
+
 def write_readme(args: Mapping[str, Any]) -> None:
     """Write an sample README.md file"""
     with TARGET_DIR.joinpath("README.md").open("w") as frm:
         frm.write(f"# {args.name}\n")
+
 
 def create_pyfiles(args: Mapping[str, Any]) -> None:
     """Create python files
@@ -135,35 +137,41 @@ def install(args) -> None:
     """Install the project, so we can run the pipeline via
     the binary (named `<args.name>`) or `python -m <args.name>`
     """
-    if args.noinstall:
+    if args.install == "dont":
         return
 
-    logger.info("Installing the pipeline ...")
-    logger.info("- Runing poetry build ...")
-    poetry.build()
+    if args.install == "poetry":
+        poetry.install()
 
-    logger.info("- Exacting files from the build ...")
-    version = poetry.version(s=True).stdout.strip()
-    targz = Path("./dist") / f"{args.name}-{version}.tar.gz"
-    targz = tarfile.open(targz)
-    targz.extractall(Path("./dist"))
+    else:
+        logger.info("Installing the pipeline ...")
+        logger.info("- Runing poetry build ...")
+        poetry.build()
 
-    logger.info("- Linking setup.py ...")
-    setuppy = Path("./setup.py")
-    if setuppy.exists():
-        setuppy.unlink()
-    setuppy.symlink_to(Path("./dist") / f"{args.name}-{version}" / "setup.py")
+        logger.info("- Exacting files from the build ...")
+        version = poetry.version(s=True).stdout.strip()
+        targz = Path("./dist") / f"{args.name}-{version}.tar.gz"
+        targz = tarfile.open(targz)
+        targz.extractall(Path("./dist"))
 
-    logger.info("- Installing using pip ...")
-    instcmd = pip.install(upgrade=True, e=True, _=["."], _raise=False)
-    if instcmd.rc != 0:
-        logger.warning("  Failed with pip installation directly")
-        logger.info("- Running the installation command directly")
-        cmd = instcmd.stderr.splitlines()[1].strip()
-        if not cmd.startswith("command: "):
-            logger.error("  Cannot extract command:")
-            for err in instcmd.stderr.splitlines():
-                logger.error(f"  {err}")
-            return
-        cmd = cmd[9:]
-        bash(c=cmd)
+        logger.info("- Linking setup.py ...")
+        setuppy = Path("./setup.py")
+        if setuppy.exists():
+            setuppy.unlink()
+        setuppy.symlink_to(
+            Path("./dist") / f"{args.name}-{version}" / "setup.py"
+        )
+
+        logger.info("- Installing using pip ...")
+        instcmd = pip.install(upgrade=True, e=True, _=["."], _raise=False)
+        if instcmd.rc != 0:
+            logger.warning("  Failed with pip installation directly")
+            logger.info("- Running the installation command directly")
+            cmd = instcmd.stderr.splitlines()[1].strip()
+            if not cmd.startswith("command: "):
+                logger.error("  Cannot extract command:")
+                for err in instcmd.stderr.splitlines():
+                    logger.error(f"  {err}")
+                return
+            cmd = cmd[9:]
+            bash(c=cmd)

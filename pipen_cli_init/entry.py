@@ -46,7 +46,7 @@ class PipenCliInit:
             "b,bin",
             type=bool,
             default=False,
-            desc="Create binary executable (named `<name>`) with installation, "
+            desc="Create executable script (named `<name>`) with installation, "
             "otherwise your pipeline should be running via `python -m <name>`",
         )
         command.add_param(
@@ -56,11 +56,18 @@ class PipenCliInit:
             desc="Need to generate reports for your pipeline?",
         )
         command.add_param(
-            "noinstall",
-            type=bool,
-            default=False,
-            desc="Do not install the project after initialization. "
-            "By default, the project will be installed using pip editable mode",
+            "install",
+            type="choice",
+            choices=["poetry", "pip-e", "dont"],
+            default="poetry",
+            desc=(
+                "How to install the pipeline after creation:",
+                "- `poetry`: Install using poetry. You can run your pipeline "
+                "using poetry",
+                "- `pip-e`: Install using `pip install -e`. You can your "
+                "pipeline directly",
+                "- `dont`: Do not install the pipeline."
+            ),
         )
 
     @cli_plugin.impl
