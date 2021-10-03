@@ -15,4 +15,4 @@ pipeline = Pipen(
 
 def main():
     """Run the pipeline"""
-    pipeline.run(Example)
+    pipeline.set_starts(Example).run()
