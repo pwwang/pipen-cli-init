@@ -1,8 +1,11 @@
+"""Provides the plugin"""
+
 import re
 import sys
-from typing import TYPE_CHECKING, Any, Mapping
+from typing import Any, Mapping
 
-from pipen.cli import cli_plugin
+from pipen.cli import CLIPlugin
+from pyparam import Params
 
 from .initing import (
     check_dir_empty,
@@ -13,26 +16,23 @@ from .initing import (
     TARGET_DIR,
 )
 
-if TYPE_CHECKING:
-    from pyparam import Params
-
-COMMAND = "init"
 PROJNAME_RE = re.compile(f"[A-Za-z][\w_-]*")
 
-class PipenCliInit:
-    """A pipen cli plugin to create pipen project"""
+class PipenCliInit(CLIPlugin):
+    """Initialize a pipen project (pipeline)"""
 
     from .version import __version__
 
-    @cli_plugin.impl
-    def add_commands(self, params: "Params") -> None:
+    name: str = "init"
+
+    @property
+    def params(self) -> Params:
         """Add command"""
-        command = params.add_command(
-            COMMAND,
-            "Initialize a pipen project (pipeline)",
+        pms = Params(
+            desc=self.__class__.__doc__,
             help_on_void=False,
         )
-        command.add_param(
+        pms.add_param(
             "n,name",
             default=TARGET_DIR.name,
             desc="Name of your project, must be a valid python module name.",
@@ -42,20 +42,20 @@ class PipenCliInit:
                 else val
             )
         )
-        command.add_param(
+        pms.add_param(
             "b,bin",
             type=bool,
             default=False,
             desc="Create executable script (named `<name>`) with installation, "
             "otherwise your pipeline should be running via `python -m <name>`",
         )
-        command.add_param(
+        pms.add_param(
             "r,report",
             type=bool,
             default=True,
             desc="Need to generate reports for your pipeline?",
         )
-        command.add_param(
+        pms.add_param(
             "install",
             type="choice",
             choices=["poetry", "pip-e", "dont"],
@@ -69,12 +69,10 @@ class PipenCliInit:
                 "- `dont`: Do not install the pipeline."
             ),
         )
+        return pms
 
-    @cli_plugin.impl
-    def exec_command(self, command: str, args: Mapping[str, Any]) -> None:
+    def exec_command(self, args: Mapping[str, Any]) -> None:
         """Execute the command"""
-        if command != COMMAND:
-            return
 
         if not check_dir_empty(args):
             sys.exit(1)
