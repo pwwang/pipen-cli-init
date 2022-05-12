@@ -101,7 +101,7 @@ export/
 site/
 
 # poetry
-poetry.lock
+example-pipeline/poetry.lock
 
 # backup files
 *.bak
