@@ -1,12 +1,11 @@
 [build-system]
-requires = [ "poetry-core>=1.0.0",]
 build-backend = "poetry.core.masonry.api"
-
+requires = ["poetry-core>=1.0.0"]
 [tool.poetry]
 name = "example-pipeline"
 description = "A pipen pipeline."
-authors = [ "ABC <abc@example.com>",]
 version = "1.0.0"
+authors = ["ABC <abc@example.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7.1"

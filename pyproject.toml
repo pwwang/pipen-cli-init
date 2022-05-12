@@ -7,11 +7,12 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.7.1"
-pipen = "^0.2"
-toml = "^0.10"
-liquidpy = "^0.7"
+pipen = "^0.3"
+# # required by pipen
+# rtoml = "^0.7"
+# liquidpy = "^0.7"
 # optional, needed for installation
-cmdy = "^0.4"
+cmdy = "^0.5"
 poetry = "^1"
 
 [tool.poetry.dev-dependencies]

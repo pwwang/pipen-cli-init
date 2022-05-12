@@ -3,7 +3,7 @@ import tarfile
 from pathlib import Path
 from typing import Any, Mapping
 
-import toml
+import rtoml
 from cmdy import bash, pip, poetry
 from liquid import Liquid
 from rich.logging import RichHandler
@@ -32,7 +32,7 @@ def write_pyproject_toml(args: Mapping[str, Any]) -> None:
     """Write pyproject.toml"""
     logger.info("Creating pyproject.toml ...")
     with HERE.joinpath("deps.toml").open() as fdep:
-        deps = toml.load(fdep)
+        deps = rtoml.load(fdep)
 
     if not args.report:
         del deps.report
@@ -59,7 +59,7 @@ def write_pyproject_toml(args: Mapping[str, Any]) -> None:
         }
 
     with TARGET_DIR.joinpath("pyproject.toml").open("w") as fpyp:
-        toml.dump(pyp, fpyp)
+        rtoml.dump(pyp, fpyp)
 
 
 def write_readme(args: Mapping[str, Any]) -> None:
@@ -141,6 +141,7 @@ def install(args) -> None:
         return
 
     if args.install == "poetry":
+        logger.info("Installing pipeline dependencies (takes a while) ...")
         poetry.install()
 
     else:
