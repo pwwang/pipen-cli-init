@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pipen-cli-init"
-version = "0.0.5"
+version = "0.1.0"
 description = "A pipen cli plugin to create a pipen project (pipeline)"
 authors = ["pwwang <pwwang@pwwang.com>"]
 license = "MIT"
