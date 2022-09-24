@@ -9,7 +9,7 @@ license = "MIT"
 python = "^3.7.1"
 pipen = "^0.3"
 # # required by pipen
-# rtoml = "^0.7"
+# rtoml = "^0.8"
 # liquidpy = "^0.7"
 # optional, needed for installation
 cmdy = "^0.5"
