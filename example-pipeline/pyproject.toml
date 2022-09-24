@@ -9,7 +9,7 @@ authors = ["ABC <abc@example.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7.1"
-pipen-args = "^0.1.3"
-pipen-report = "^0.0.2"
+pipen-args = "^0.3"
+pipen-report = "^0.4"
 
 [tool.poetry.dev-dependencies]
