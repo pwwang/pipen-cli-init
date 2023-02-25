@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "example"
+name = "{{pipeline_name}}"
 version = "0.0.1"
-description = "An awesome pipeline"
-authors = ["Author <author@example.com>"]
+description = "{{pipeline_desc}}"
+authors = ["{{author}} <{{author_email}}>"]
 readme = "README.md"
 license = "MIT"
 
@@ -12,14 +12,16 @@ pipen = "^0.4.3"
 pipen-filters = "^0.3"
 pipen-verbose = "^0.2"
 pipen-args = "^0.4"
-
+{% if report -%}
+pipen-report = "^0.4.3"
+{%- endif %}
 
 [tool.poetry.dev-dependencies]
 
-
+{% if console_script %}
 [tool.poetry.scripts]
-example = "example.main:main"
-
+{{pipeline_name}} = "{{pipeline_name}}.main:main"
+{% endif %}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

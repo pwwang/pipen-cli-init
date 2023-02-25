@@ -1,0 +1,15 @@
+from pipen import Pipen
+import pipen_args  # noqa: F401
+
+from .processes import ExampleProcess
+
+
+pipeline = Pipen(
+    name="{{pipeline_name}}",
+    desc="{{pipeline_desc}}",
+)
+pipeline.set_start(ExampleProcess)
+
+
+def main():
+    pipeline.run()

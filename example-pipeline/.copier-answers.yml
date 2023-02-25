@@ -1,0 +1,9 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_src_path: /home/pwwang/github/pipen-cli-init/pipen_cli_init/template
+author: Author
+author_email: author@example.com
+console_script: true
+pipeline_desc: An awesome pipeline
+pipeline_name: example
+report: false
+

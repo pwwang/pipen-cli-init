@@ -1,1 +1,0 @@
-<h1>{{ open(job.out.outfile).read() }}</h1>

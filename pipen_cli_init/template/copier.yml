@@ -1,0 +1,29 @@
+pipeline_name:
+  type: str
+  help: The name of your pipeline. It will be used as the name of the package.
+  validator: "{% if not pipeline_name.isidentifier() %}Not a valid identifier{% endif %}"
+
+pipeline_desc:
+  type: str
+  help: The description of your pipeline.
+  default: An awesome pipeline
+
+author:
+  type: str
+  help: The author of the pipeline.
+  default: Author
+
+author_email:
+  type: str
+  help: The email of the pipeline author.
+  default: author@example.com
+
+report:
+  type: bool
+  help: Need to generate reports for your pipeline?
+  default: true
+
+console_script:
+  type: bool
+  help: Need to generate console script for your pipeline? If True, you can run the pipeline <pipeline_name> directly from the command line, otherwise, you need to run it with python -m <pipeline_name>.
+  default: true

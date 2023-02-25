@@ -4,7 +4,7 @@ A [`pipen`][1] cli plugin to create a pipen project (pipeline)
 
 ## Installation
 
-```
+```shell
 pip install -U pipen-cli-init
 ```
 
@@ -14,65 +14,45 @@ Installing this plugin will enable it, and uninstalling will disable it.
 
 ## Usage
 
-```
+```shell
 ❯ pipen init --help
+Usage: pipen init [-h] [dir]
 
-DESCRIPTION:
-  Initialize a pipen project (pipeline)
+Initialize a pipen project (pipeline)
 
-USAGE:
-  pipen init [OPTIONS]
+Optional Arguments:
+  -h, --help  show help message and exit
 
-OPTIONAL OPTIONS:
-  -n, --name <STR>                - Name of your project, must be a valid python
-                                    module name. Default: pipen-cli-init
-  -b, --bin [BOOL]                - Create executable script (named <name>)
-                                    with installation, otherwise your pipeline
-                                    should be running via python -m <name>
-                                    Default: False
-  -r, --report [BOOL]             - Need to generate reports for your pipeline?
-                                    Default: True
-  --install <CHOICE>              - How to install the pipeline after creation:
-                                    Default: poetry
-                                    - poetry: Install using poetry. You can
-                                    run your pipeline using poetry
-                                    - pip-e: Install using pip install -e.
-                                    You can your pipeline directly
-                                    - dont: Do not install the pipeline.
-  -h, --help                      - Print help information for this command
+Positional Arguments:
+  dir         The directory to create the project in [default: ./]
 ```
 
-This tool will create a project under current directory (requires empty). The python module will be created at `./<name>`. If `<name>` has dash (`-`) in it, it will be replaced with `_`.
+## Example
 
-To run your pipeline, you can do:
-
-```
-> python -m <name>
-```
-
-If your pipeline is not installed (`--install dont`), you have to run it under your project directory. But if you want to run it anywhere, you have to install it using `--install pip-e`.
-
-If you don't want to pollute the global environment, you can use `poetry` to install it. This will create a virtual enviornment, and install the dependencies there. To run you pipeline:
-
-```
-> poetry run python -m <name>
+```shell
+> cd example-pipeline/
+> pipen init
+> # answer the questions
+> # after the project is created, install the dependencies
+> poetry install
+> # run the pipeline
+> poetry run python -m <pipeline_name>
+> # or if you choose console_script to be True
+> poetry run <pipeline_name>
 ```
 
-Or enter poetry shell first and then run your pipeline:
+If you want to publish the pipeline:
 
-```
-> poetry shell
-(poetry shell)> python -m <name>
-```
-
-If you want to install a executable script for your pipeline, use `--bin`.
-Then you can run your pipeline directly:
-
-```
-> <name> --help
+```shell
+poetry publish --build
 ```
 
+Then you can install it and run the pipeline globally:
 
+```shell
+> python -m <pipeline_name>
+> # or if you choose console_script to be True
+> <pipeline_name>
+```
 
 [1]: https://github.com/pwwang/pipen
-

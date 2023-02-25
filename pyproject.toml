@@ -1,19 +1,14 @@
 [tool.poetry]
 name = "pipen-cli-init"
-version = "0.1.1"
+version = "0.2.0"
 description = "A pipen cli plugin to create a pipen project (pipeline)"
 authors = ["pwwang <pwwang@pwwang.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.7.1"
-pipen = "^0.3"
-# # required by pipen
-# rtoml = "^0.8"
-# liquidpy = "^0.7"
-# optional, needed for installation
-cmdy = "^0.5"
-poetry = "^1"
+pipen = "^0.4.3"
+copier = "^7.0.1"
 
 [tool.poetry.dev-dependencies]
 
