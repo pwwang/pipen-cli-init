@@ -17,5 +17,5 @@ class ExampleProcess(Proc):
     output = "outfile:file:output.txt"
     script = "file://scripts/ExampleProcess.sh"
     plugin_opts = {
-        
+        "report": "file://reports/ExampleProcess.svelte",
     }

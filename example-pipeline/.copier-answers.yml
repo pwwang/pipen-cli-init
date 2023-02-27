@@ -5,5 +5,5 @@ author_email: author@example.com
 console_script: true
 pipeline_desc: An awesome pipeline
 pipeline_name: example
-report: false
+report: true
 
