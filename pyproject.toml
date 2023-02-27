@@ -19,6 +19,9 @@ cli-init = "pipen_cli_init:PipenCliInit"
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.mypy]
+ignore_missing_imports = true
+
 [tool.black]
 line-length = 80
 target-version = ['py37', 'py38', 'py39']

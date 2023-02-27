@@ -37,5 +37,7 @@ class PipenCliInit(CLIPlugin):
         dest_dir = args.dir.resolve()
         print("✅ \033[1mCreating/Updating pipen project in:\033[0m")
         print(f"   \033[4m{dest_dir}\033[0m")
-        print("   (You can change the directory by running `pipen init <dir>`)")
+        print(
+            "   (You can change the directory by running `pipen init <dir>`)"
+        )
         run_auto(str(TEMPLATE_PATH), str(dest_dir))
