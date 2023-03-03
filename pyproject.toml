@@ -7,7 +7,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.7.1"
-pipen = "^0.4.3"
+pipen = "^0.5"
 copier = "^7"
 
 [tool.poetry.dev-dependencies]
