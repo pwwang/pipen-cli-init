@@ -5,7 +5,7 @@ from pathlib import Path
 from pipen.cli._hooks import CLIPlugin
 from copier import run_auto
 
-__version__ = "0.3.1"
+__version__ = "0.4.0"
 
 if TYPE_CHECKING:
     from argx import ArgumentParser, Namespace
