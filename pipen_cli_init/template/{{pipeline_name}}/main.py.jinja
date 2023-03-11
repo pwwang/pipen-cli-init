@@ -4,12 +4,11 @@ from pipen_args import install  # noqa: F401
 from .processes import ExampleProcess
 
 
-pipeline = Pipen(
-    name="{{pipeline_name}}",
-    desc="{{pipeline_desc}}",
-)
-pipeline.set_start(ExampleProcess)
+class Pipeline(Pipen):
+    name = "{{pipeline_name}}"
+    desc = "{{pipeline_desc}}"
+    starts = ExampleProcess
 
 
 def main():
-    pipeline.run()
+    Pipeline().run()
