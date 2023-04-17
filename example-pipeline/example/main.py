@@ -1,5 +1,4 @@
 from pipen import Pipen
-from pipen_args import install  # noqa: F401
 
 from .processes import ExampleProcess
 
