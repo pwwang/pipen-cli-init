@@ -8,11 +8,11 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-pipen = "^0.9"
-pipen-filters = "^0.7"
-pipen-verbose = "^0.6"
-pipen-args = "^0.9.5"
-pipen-report = "^0.9"
+pipen = "^0.10"
+pipen-filters = "^0.8"
+pipen-verbose = "^0.7"
+pipen-args = "^0.10"
+pipen-report = "^0.10"
 
 [tool.poetry.dev-dependencies]
 
