@@ -12,7 +12,7 @@ pipen = "^0.10"
 pipen-filters = "^0.8"
 pipen-verbose = "^0.7"
 pipen-args = "^0.10"
-pipen-report = "^0.10"
+pipen-report = "^0.12"
 
 [tool.poetry.dev-dependencies]
 

@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 from pathlib import Path
 from pipen.cli._hooks import CLIPlugin
-from copier import run_auto
+from copier import run_copy
 
 __version__ = "0.7.0"
 
@@ -40,4 +40,4 @@ class PipenCliInit(CLIPlugin):
         print(
             "   (You can change the directory by running `pipen init <dir>`)"
         )
-        run_auto(str(TEMPLATE_PATH), str(dest_dir))
+        run_copy(str(TEMPLATE_PATH), str(dest_dir))
