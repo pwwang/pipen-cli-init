@@ -1,5 +1,5 @@
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
-_src_path: /workspaces/pipen-cli-init/pipen_cli_init/template
+_src_path: /workspace/pipen_cli_init/template
 author: Author
 author_email: author@example.com
 console_script: true
