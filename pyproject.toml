@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pipen-cli-init"
-version = "0.7.1"
+version = "0.8.0"
 description = "A pipen cli plugin to create a pipen project (pipeline)"
 authors = ["pwwang <pwwang@pwwang.com>"]
 license = "MIT"
@@ -26,6 +26,6 @@ build-backend = "poetry.core.masonry.api"
 ignore_missing_imports = true
 
 [tool.black]
-line-length = 80
+line-length = 88
 target-version = ['py38', 'py39', 'py310']
 include = '\.pyi?$'
