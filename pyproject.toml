@@ -8,7 +8,7 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.8"
 pipen = "^0.12"
-copier = "^8.3"
+copier = "^9"
 
 [tool.poetry.build]
 generate-setup-file = true
