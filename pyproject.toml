@@ -7,7 +7,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-pipen = "^0.12"
+pipen = "^0.13"
 copier = "^9"
 
 [tool.poetry.build]
@@ -27,5 +27,5 @@ ignore_missing_imports = true
 
 [tool.black]
 line-length = 88
-target-version = ['py38', 'py39', 'py310']
+target-version = ['py38', 'py39', 'py310', 'py311']
 include = '\.pyi?$'
