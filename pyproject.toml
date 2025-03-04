@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "pipen-cli-init"
-version = "0.13.0a1"
+version = "0.13.0"
 description = "A pipen cli plugin to create a pipen project (pipeline)"
 authors = ["pwwang <pwwang@pwwang.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-pipen = { version = "^0.16.0a1", allow-prereleases = true }
+pipen = "^0.16"
 copier = "^9"
 
 [tool.poetry.build]
