@@ -7,19 +7,17 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-pipen = "0.17.*"
+pipen = "^1.0"
 copier = "^9"
 
 [tool.poetry.build]
 generate-setup-file = true
 
-[tool.poetry.dev-dependencies]
-
 [tool.poetry.plugins.pipen_cli]
 cli-init = "pipen_cli_init:PipenCliInit"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.mypy]
