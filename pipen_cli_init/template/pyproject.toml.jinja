@@ -8,15 +8,15 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-pipen = "^0.17"
-pipen-filters = "^0.15"
-pipen-verbose = "^0.14"
-pipen-args = "^0.17"
+pipen = "^1.0"
+pipen-filters = "^1.0"
+pipen-verbose = "^1.0"
+pipen-args = "^1.0"
 {% if report -%}
-pipen-report = "^0.23"
+pipen-report = "^1.0"
 {%- endif %}
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 
 {% if console_script %}
 [tool.poetry.scripts]
@@ -24,7 +24,7 @@ pipen-report = "^0.23"
 {% endif %}
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.black]
