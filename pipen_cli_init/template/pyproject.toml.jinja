@@ -8,12 +8,12 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-pipen = "^1.0"
-pipen-filters = "^1.0"
-pipen-verbose = "^1.0"
-pipen-args = "^1.0"
+pipen = {version = "1.1.*", allow-prereleases = true}
+pipen-filters = "^1.1"
+pipen-verbose = "^1.1"
+pipen-args = "^1.1"
 {% if report -%}
-pipen-report = "^1.0"
+pipen-report = "^1.1"
 {%- endif %}
 
 [tool.poetry.group.dev.dependencies]
