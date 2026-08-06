@@ -100,9 +100,6 @@ export/
 *.queue.txt
 site/
 
-# poetry
-example-pipeline/poetry.lock
-
 # backup files
 *.bak
 

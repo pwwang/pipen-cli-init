@@ -1,24 +1,24 @@
-[tool.poetry]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
 name = "pipen-cli-init"
 version = "1.1.1"
 description = "A pipen cli plugin to create a pipen project (pipeline)"
-authors = ["pwwang <pwwang@pwwang.com>"]
-license = "MIT"
+authors = [
+    {name = "pwwang", email = "pwwang@pwwang.com"},
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pipen>=1.1",
+    "copier>=9",
+]
 
-[tool.poetry.dependencies]
-python = "^3.9"
-pipen = {version = "1.1.*", allow-prereleases = true}
-copier = "^9"
-
-[tool.poetry.build]
-generate-setup-file = true
-
-[tool.poetry.plugins.pipen_cli]
+[project.entry-points."pipen_cli"]
 cli-init = "pipen_cli_init:PipenCliInit"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
 
 [tool.mypy]
 ignore_missing_imports = true

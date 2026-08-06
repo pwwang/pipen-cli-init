@@ -1,31 +1,30 @@
-[tool.poetry]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
 name = "{{pipeline_name}}"
 version = "0.0.1"
 description = "{{pipeline_desc}}"
-authors = ["{{author}} <{{author_email}}>"]
+authors = [
+    {name = "{{author}}", email = "{{author_email}}"},
+]
+license = {text = "MIT"}
 readme = "README.md"
-license = "MIT"
-
-[tool.poetry.dependencies]
-python = "^3.9"
-pipen = {version = "1.1.*", allow-prereleases = true}
-pipen-filters = "^1.1"
-pipen-verbose = "^1.1"
-pipen-args = "^1.2"
-{% if report -%}
-pipen-report = "^1.2"
-{%- endif %}
-
-[tool.poetry.group.dev.dependencies]
-
+requires-python = ">=3.9"
+dependencies = [
+    "pipen>=1.1",
+    "pipen-filters>=1.1",
+    "pipen-verbose>=1.1",
+    "pipen-args>=1.2",
+    {% if report -%}
+    "pipen-report>=1.2",
+    {%- endif %}
+    ]
 {% if console_script %}
-[tool.poetry.scripts]
+[project.scripts]
 {{pipeline_name}} = "{{pipeline_name}}.main:main"
 {% endif %}
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
 
 [tool.black]
 line-length = 88

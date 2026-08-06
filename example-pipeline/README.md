@@ -4,14 +4,14 @@
 
 ```bash
 $ cd example/
-$ poetry install
+$ uv sync
 ```
 
 ## Usage
 
 ```bash
-$ poetry run python -m example
+$ uv run python -m example
 
 # If console_script is True
-$ poetry run example
+$ uv run example
 ```

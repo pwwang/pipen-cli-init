@@ -34,17 +34,18 @@ Positional Arguments:
 > pipen init
 > # answer the questions
 > # after the project is created, install the dependencies
-> poetry install
+> uv sync
 > # run the pipeline
-> poetry run python -m <pipeline_name>
+> uv run python -m <pipeline_name>
 > # or if you choose console_script to be True
-> poetry run <pipeline_name>
+> uv run <pipeline_name>
 ```
 
 If you want to publish the pipeline:
 
 ```shell
-poetry publish --build
+uv build
+uv publish
 ```
 
 Then you can install it and run the pipeline globally:
