@@ -20,7 +20,7 @@ dependencies = [
     {% if report -%}
     "pipen-report>=1.2",
     {%- endif %}
-    ]
+]
 {% if console_script %}
 [project.scripts]
 {{pipeline_name}} = "{{pipeline_name}}.main:main"

@@ -6,7 +6,7 @@ from pathlib import Path
 from pipen.cli._hooks import AsyncCLIPlugin
 from copier import run_copy
 
-__version__ = "1.1.1"
+__version__ = "1.1.2"
 
 if TYPE_CHECKING:
     from argx import ArgumentParser, Namespace
