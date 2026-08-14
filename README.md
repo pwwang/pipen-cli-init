@@ -1,6 +1,13 @@
-# pipen-cli-init
+<p align="center">
+  <img width="220px" src="logo.png" />
+</p>
+<p align="center">
+  A
+  <a href="https://github.com/pwwang/pipen" target="_blank">pipen</a>
+  cli plugin to create a pipen project (pipeline)
+</p>
 
-A [`pipen`][1] cli plugin to create a pipen project (pipeline)
+<hr />
 
 ## Installation
 
